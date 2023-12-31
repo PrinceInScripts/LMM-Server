@@ -16,7 +16,7 @@ const app=express()
 app.use(express.json())
 
 app.use(cors({
-    origin:[process.env.FRONTEND_URL],
+    origin:["https://learning-here.vercel.app/"],
     credentials: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 204,
