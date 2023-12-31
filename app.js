@@ -17,10 +17,17 @@ app.use(express.json())
 
 app.use(cors({
     origin:[process.env.FRONTEND_URL],
-    credentials:true
+    credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    optionsSuccessStatus: 204,
 }))
 
-app.use(cookieParser())
+app.use(cookieParser(
+    {
+        sameSite: 'None',
+        secure: true,
+    }
+))
 
 app.use(morgan('dev'))
 
