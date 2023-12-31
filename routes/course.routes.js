@@ -9,7 +9,7 @@ router
      .route('/')
      .get(getAllCourses)
      .post(
-      //     isLoggedIn,
+          isLoggedIn,
           authorizedRoles('ADMIN'),
           upload.single('thumbail'),
           createCourse
@@ -21,8 +21,7 @@ router
 
 router
       .route('/:courseId')
-      .get(
-            // isLoggedIn,
+      .get(isLoggedIn,
             authorizedSubscriber,
             getLectureByCourseId)
       .put(
@@ -31,7 +30,7 @@ router
             updateCourse
       )
       .delete(
-            // isLoggedIn,
+            isLoggedIn,
             authorizedRoles('ADMIN'),
             deleteCourse
       )
